@@ -17,6 +17,6 @@ app.use("/user",userRouter)
 mongoose.connect('mongodb+srv://root:root@cluster0.pphcshu.mongodb.net/BMI',{}
  );
 
- app.listen(4002,()=>{
+ app.listen(4001,()=>{
     console.log("STARTED ON 4002")
  })

@@ -9,7 +9,7 @@ import { authenticateJwt } from '../middleware/auth';
 const router = express.Router();
 
 
- router.post("/signup",async (req:any,res:any) => {
+ router.post('/signup',async (req:any,res:any) => {
     const {username,password} = req.body;
     const user = await User.findOne({username});
     if (user) {
@@ -19,7 +19,7 @@ const router = express.Router();
         const newUser = new User({username,password});
         await newUser.save();
         const token:string = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '1h' })
-        res.json("User Signed Up Succesfully!!!",token)
+        res.json({ message: 'User created successfully', token })
     }
 })
 
