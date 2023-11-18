@@ -41,4 +41,10 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.status(403).json({ message: 'Invalid username or password' });
     }
 }));
+router.get("/bmi", (req, res) => {
+    const { height, weight } = req.query;
+    // You might want to perform BMI calculation here
+    // Sending JSON response as an object
+    res.status(201).json({ height, weight });
+});
 module.exports = router;
