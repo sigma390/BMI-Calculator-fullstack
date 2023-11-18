@@ -27,7 +27,7 @@ router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function*
         const newAdmin = new db_1.Admin({ username, password });
         yield newAdmin.save();
         const token = jsonwebtoken_1.default.sign({ username, role: 'user' }, auth_1.SECRET, { expiresIn: '1h' });
-        res.json({ msg: "Admin Created Succesfully!!" }, token);
+        res.json({ message: 'Admin created successfully', token });
     }
 }));
 router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {

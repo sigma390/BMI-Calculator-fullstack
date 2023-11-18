@@ -12,6 +12,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express_1.default.json());
 app.use("/user", userRouter);
+app.use("/admin", adminRouter);
 //connection
 // const options:any = { useNewUrlParser: true, useUnifiedTopology: true }
 mongoose_1.default.connect('mongodb+srv://root:root@cluster0.pphcshu.mongodb.net/BMI', {});

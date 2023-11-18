@@ -19,7 +19,7 @@ router.post('/signup',async (req:any,res:any)=>{
         const newAdmin = new Admin({username,password});
         await newAdmin.save();
         const token = jwt.sign({ username, role: 'user' }, SECRET, { expiresIn: '1h' });
-        res.json({msg:"Admin Created Succesfully!!"},token);
+        res.json({ message: 'Admin created successfully', token });
     }
 
 })

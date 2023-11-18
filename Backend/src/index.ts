@@ -10,7 +10,8 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-app.use("/user",userRouter)
+app.use("/user",userRouter);
+app.use("/admin",adminRouter)
 //connection
 
 // const options:any = { useNewUrlParser: true, useUnifiedTopology: true }
