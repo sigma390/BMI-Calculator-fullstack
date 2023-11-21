@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './components/signup';
 
 import './App.css'
-import {RecoilRoot,atom,selector,useRecoilState,useRecoilValue,} from 'recoil';
+import {RecoilRoot} from 'recoil';
 
 function App() {
   
