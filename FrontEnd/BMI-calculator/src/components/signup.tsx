@@ -13,8 +13,28 @@ return<div style={{
     justifyContent:'center',
     flexWrap:'wrap'
 }}>
+    
+    <Card variant='outlined' style={{width:400,padding:20}}>
     <Typography variant={'h6'}>Welcome To BMI Calculator</Typography>
-    <Card>
+        <TextField onChange={(e)=>{
+            setEmail(e.target.value);
+        }}
+        label='Username'
+        variant='outlined'
+        fullWidth={true}/>
+        <TextField style= {{marginTop:10}}onChange={(e)=>{
+            setEmail(e.target.value);
+        }}
+        label='Password'
+        variant='outlined'
+        fullWidth={true}/>
+
+        
+        <Button style={{
+            marginTop:10
+        }} variant="contained" onClick={async ()=>{
+            const response = await axios.post("http://localhost:3000/admin/signup")
+        }}>Signup</Button>
 
     </Card>
 
