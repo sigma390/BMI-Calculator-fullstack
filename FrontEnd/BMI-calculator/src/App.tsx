@@ -18,6 +18,7 @@ function App() {
       <Router>
             <Routes>
                 <Route path="/signup" element={<Signup />} />
+                <Route path='/BMI' element={<BMI/>}/>
                 
             </Routes>
         </Router>
