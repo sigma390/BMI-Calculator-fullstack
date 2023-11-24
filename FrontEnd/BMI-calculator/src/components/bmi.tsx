@@ -21,7 +21,7 @@ function BMI(){
                setHeight(isNaN(newHeight) ? undefined : newHeight);
             }}></TextField>
             <br />
-            <Button variant="contained" size="large" style={{marginTop:10}} onClick={} >Calculate BMI</Button>
+            <Button variant="contained" size="large" style={{marginTop:10}} >Calculate BMI</Button>
 
         </Card>
     
