@@ -39,7 +39,7 @@ return<div style={{
             })
             const data = response.data;
             localStorage.setItem('token',data.token)
-            window.location.href = "/";
+            window.location.href = "/BMI";
 
         }}>Signup</Button>
 
