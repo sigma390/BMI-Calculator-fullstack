@@ -41,6 +41,6 @@ router.post('/login', async (req, res) => {
     const bmi = weight / ((height/100) * (height/100));
     let result = Math.round(bmi * 100) / 100;
     // Sending JSON response as an object
-    res.status(201).json({ height, weight, result });
+    res.status(201).json({ result });
   });
   module.exports = router;
