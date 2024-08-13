@@ -1,15 +1,20 @@
 import { Button, Card, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import the toastify CSS
 function BMI() {
     const [height, setHeight] = useState<number | undefined>(undefined);
     const [weight, setWeight] = useState<number | undefined>(undefined);
     const [bmi, setBmi] = useState<number | undefined>(undefined);
+    const [category,setCategory] = useState<string | undefined>(undefined);
 
+    const navigate = useNavigate();
     const calculateBmi = (height: number, weight: number): number => {
         if (height <= 0 || weight <= 0) {
-            throw new Error("Height and weight must be positive numbers.");
+           toast.error("height and Weight must be Positive");
+           throw new Error("Cant Calculate");
+           
         }
         return weight / (height * height);
     };
@@ -19,6 +24,7 @@ function BMI() {
             try {
                 const calculatedBmi = calculateBmi(height, weight);
                 setBmi(calculatedBmi);
+                setCategory(getCategory(calculatedBmi));
             } catch (error) {
                 console.error(error);
                 setBmi(undefined); // Clear BMI if there is an error
@@ -28,9 +34,19 @@ function BMI() {
             setBmi(undefined); // Clear BMI if height or weight is undefined
         }
     };
+    const getCategory = (bmi: number)=>{
+        if (bmi < 18.5) return 'Underweight';
+        if (bmi >= 18.5 && bmi < 24.9) return 'Normal weight';
+        if (bmi >= 25 && bmi < 29.9) return 'Overweight';
+        return 'Obesity';
+        
+    }
+    const handleChart = ()=>{
+        navigate('/charts')
+    }
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 24 }}>
             <ToastContainer position="top-center" // Positioning toast notifications at the top-center
                 autoClose={5000}     // Auto close after 5 seconds
                 hideProgressBar={false} // Show progress bar
@@ -40,7 +56,7 @@ function BMI() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover />
-            <Card style={{ width: 400, padding: 20, marginTop: 10 }}>
+            <Card style={{ width: 400, padding: 20, marginTop: 26 }}>
                 <Typography variant="h6" marginBottom={2}>Enter Your Details</Typography>
                 <TextField
                     placeholder="Height (in meters)"
@@ -78,6 +94,10 @@ function BMI() {
                 <Typography variant="h6" style={{ marginTop: 10 }}>
                     {bmi !== undefined ? `Your BMI is: ${bmi.toFixed(2)}` : 'Enter your details and click "Calculate BMI"'}
                 </Typography>
+                <Typography variant="body1" style={{ marginTop: 10 }}>
+                    {category !== undefined ? `Category: ${category}` : ''}
+                </Typography>
+                <Button onClick={handleChart}>See chart</Button>
                 
             </Card>
         </div>

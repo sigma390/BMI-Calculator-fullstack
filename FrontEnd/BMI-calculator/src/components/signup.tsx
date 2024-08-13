@@ -1,8 +1,8 @@
+import { Card, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Card, Typography } from '@mui/material';
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
 
 function Signup(){
     const[email,setEmail] = useState<string|undefined>(undefined);

@@ -6,6 +6,7 @@ import Signup from './components/signup';
 import { RecoilRoot } from 'recoil';
 import './App.css';
 import BMI from './components/bmi';
+import Charts from './components/charts';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
             <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path='/' element={<BMI/>}/>
+                <Route path='/charts' element={<Charts/>}/>
                 
             </Routes>
         </Router>
