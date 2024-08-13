@@ -1,10 +1,10 @@
 
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Signup from './components/signup';
 
-import './App.css'
-import {RecoilRoot} from 'recoil';
+import { RecoilRoot } from 'recoil';
+import './App.css';
 import BMI from './components/bmi';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Router>
             <Routes>
                 <Route path="/signup" element={<Signup />} />
-                <Route path='/BMI' element={<BMI/>}/>
+                <Route path='/' element={<BMI/>}/>
                 
             </Routes>
         </Router>
